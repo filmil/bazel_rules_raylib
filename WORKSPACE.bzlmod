@@ -1,0 +1,13 @@
+load("@rules_nixpkgs_cc//:cc.bzl", "nixpkgs_cc_configure")
+
+nixpkgs_cc_configure(
+    name = "nixpkgs_config_cc",
+    attribute_path = "clang_18",
+    repository = "@nixpkgs",
+)
+
+load("@rules_cc//cc:repositories.bzl", "rules_cc_dependencies", "rules_cc_toolchains")
+
+rules_cc_dependencies()
+
+rules_cc_toolchains()

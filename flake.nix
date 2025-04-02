@@ -22,9 +22,12 @@
           packages = [ 
             nix
             llvm_18
-            xorg.libX11
+            xorg.libX11.dev
+            xorg.libXft
+            xorg.libXinerama
             libGL
             libGLU
+            mesa
           ];
         };
       });

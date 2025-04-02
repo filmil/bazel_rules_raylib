@@ -861,7 +861,7 @@
     },
     "@@rules_nixpkgs_core+//extensions:repository.bzl%nix_repo": {
       "general": {
-        "bzlTransitiveDigest": "dTTtWNdwe7E4j77oKh1mHI1qtdxfaVSGSZa1oPf2QjU=",
+        "bzlTransitiveDigest": "4UF9zCMU0af5TzDX272/frYO2KkHhZeHkAr/Z3NcF0g=",
         "usagesDigest": "r7jvzAs1D7VTYYS/1vf2Qx6ZqWQEq6q9jk5VXqvv3wI=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},

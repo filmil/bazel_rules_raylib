@@ -1,0 +1,60 @@
+module(
+    name = "raylib",
+    version = "0.0.1",
+)
+
+bazel_dep(name = "googletest", version = "1.16.0", repo_name = "gtest")
+bazel_dep(name = "glfw", version = "3.3.9")
+bazel_dep(name = "glew", version = "2.2.0")
+bazel_dep(name = "glm", version = "1.0.0.bcr.1")
+bazel_dep(name = "bazel_skylib", version = "1.7.1")
+bazel_dep(name = "rules_cc", version = "0.1.1")
+bazel_dep(name = "rules_foreign_cc", version = "0.14.0")
+bazel_dep(name = "platforms", version = "0.0.11")
+bazel_dep(name = "rules_nixpkgs_core", version = "0.13.0")
+bazel_dep(name = "rules_nixpkgs_cc", version = "0.13.0")
+
+
+archive_override(
+    module_name = "rules_nixpkgs_cc",
+    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.13.0/rules_nixpkgs-0.13.0.tar.gz"],
+    strip_prefix = "rules_nixpkgs-0.13.0/toolchains/cc",
+    integrity = "sha256-MCcfe9OA5OIOTXEywySUbE/bwx6+C7tmOKD2GjfnQ5c=",
+)
+
+
+local = use_extension(":extensions.bzl", "raylib")
+use_repo(local, "raylib_src", "luk707_games", "bazel_local_nix", "nix_portable", "io_tweag_rules_nixpkgs")
+
+
+nix_repo = use_extension("@rules_nixpkgs_core//extensions:repository.bzl", "nix_repo")
+nix_repo.github(
+    name = "nixpkgs",
+    org = "NixOS",
+    repo = "nixpkgs",
+    commit = "ff0dbd94265ac470dda06a657d5fe49de93b4599",
+    sha256 = "1bf0f88ee9181dd993a38d73cb120d0435e8411ea9e95b58475d4426c0948e98",
+)
+nix_repo.file(
+    name = "file_nixpkgs",
+    file = "//:flake.nix",
+    file_deps = [
+        "//:flake.lock",
+    ],
+)
+nix_repo.expr(
+    name = "nixpkgs_content",
+    expr = "import ./flake.nix",
+    file_deps = [
+        "//:flake.nix",
+        "//:flake.lock",
+    ],
+)
+use_repo(
+    nix_repo,
+    "nixpkgs",
+    "file_nixpkgs",
+    "nixpkgs_content",
+)
+
+

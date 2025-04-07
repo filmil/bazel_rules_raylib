@@ -1,5 +1,4 @@
 load(":repositories.bzl", "dependencies")
-load("//third_party/rules_nixpkgs:repositories.bzl", "rules_nixpkgs_dependencies")
 
 def _raylib_impl(ctx):
     for mod in ctx.modules:

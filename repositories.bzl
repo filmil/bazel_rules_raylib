@@ -22,16 +22,6 @@ def dependencies():
         strip_prefix = "rules_nixpkgs-126e9f66b833337be2c35103ce46ab66b4e44799",
         urls = ["https://github.com/tweag/rules_nixpkgs/archive/126e9f66b833337be2c35103ce46ab66b4e44799.tar.gz"],
     )
-    maybe(
-        local_repository,
-        name = "luk707_games",
-        path = "../luk707_games",
-    )
-    #git_repository(
-        #name = "luk707_games",
-        #remote = "https://github.com/luk707/games",
-        #commit = "db8489b379e758ae931afc8cbcf5d5a09b4d83df",
-    #)
     #git_repository(
         #name = "bazel_local_nix",
         #remote = "https://github.com/filmil/bazel_local_nix",

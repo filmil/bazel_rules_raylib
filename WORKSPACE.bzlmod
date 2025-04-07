@@ -6,22 +6,24 @@ nixpkgs_cc_configure(
     repository = "@nixpkgs",
 )
 
-load("@rules_cc//cc:repositories.bzl", "rules_cc_dependencies", "rules_cc_toolchains")
+load("@rules_cc//cc:repositories.bzl",
+    "rules_cc_dependencies",
+    "rules_cc_toolchains",
+)
 
 rules_cc_dependencies()
 
 rules_cc_toolchains()
 
-load("@io_tweag_rules_nixpkgs//nixpkgs:nixpkgs.bzl", "nixpkgs_package")
-
-nixpkgs_package(
-    name = "x11",
-    attribute_path = "x11",
-    repository = "@nixpkgs",
+load(
+    "@io_tweag_rules_nixpkgs//nixpkgs:nixpkgs.bzl",
+    "nixpkgs_package",
 )
 
 nixpkgs_package(
-    name = "x11.dev",
+    name = "x11",
+    attribute_path = "xorg.libX11",
+    repository = "@nixpkgs",
     build_file_content = """\
 load("@rules_cc//cc:defs.bzl", "cc_library")
 filegroup(
@@ -37,5 +39,24 @@ cc_library(
     visibility = ["//visibility:public"],
 )
 """,
-    repository = "@nixpkgs",
 )
+
+#nixpkgs_package(
+    #name = "x11.dev",
+    #build_file_content = """\
+#load("@rules_cc//cc:defs.bzl", "cc_library")
+#filegroup(
+    #name = "include",
+    #srcs = glob(["include/**/*.h"]),
+    #visibility = ["//visibility:public"],
+#)
+#cc_library(
+    #name = "x11",
+    #srcs = ["@x11//:lib"],
+    #hdrs = [":include"],
+    #strip_include_prefix = "include",
+    #visibility = ["//visibility:public"],
+#)
+#""",
+    #repository = "@nixpkgs",
+#)

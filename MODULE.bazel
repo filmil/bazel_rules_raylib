@@ -4,8 +4,10 @@ module(
 )
 
 bazel_dep(name = "googletest", version = "1.16.0", repo_name = "gtest")
-bazel_dep(name = "glfw", version = "3.3.9")
-bazel_dep(name = "glew", version = "2.2.0")
+# This is a lie, this bazel dep is not hermetic.
+#bazel_dep(name = "glfw", version = "3.3.9")
+# This is a lie too.
+#bazel_dep(name = "glew", version = "2.2.0")
 bazel_dep(name = "glm", version = "1.0.0.bcr.1")
 bazel_dep(name = "bazel_skylib", version = "1.7.1")
 bazel_dep(name = "rules_cc", version = "0.1.1")
@@ -14,62 +16,62 @@ bazel_dep(name = "rules_sh", version = "0.5.0")
 bazel_dep(name = "rules_nodejs", version = "5.8.3")
 bazel_dep(name = "rules_foreign_cc", version = "0.14.0")
 bazel_dep(name = "platforms", version = "0.0.11")
-bazel_dep(name = "rules_nixpkgs_core", version = "0.12.0")
-bazel_dep(name = "rules_nixpkgs_cc", version = "0.12.0")
+bazel_dep(name = "rules_nixpkgs_core", version = "0.13.0")
+bazel_dep(name = "rules_nixpkgs_cc", version = "0.13.0")
 
 # Why do I need all these?  This should not be required I think.
-bazel_dep(name = "rules_nixpkgs_rust", version = "0.12.0")
-bazel_dep(name = "rules_nixpkgs_python", version = "0.12.0")
-bazel_dep(name = "rules_nixpkgs_posix", version = "0.12.0")
-bazel_dep(name = "rules_nixpkgs_nodejs", version = "0.12.0")
-bazel_dep(name = "rules_nixpkgs_java", version = "0.12.0")
+bazel_dep(name = "rules_nixpkgs_rust", version = "0.13.0")
+bazel_dep(name = "rules_nixpkgs_python", version = "0.13.0")
+bazel_dep(name = "rules_nixpkgs_posix", version = "0.13.0")
+bazel_dep(name = "rules_nixpkgs_nodejs", version = "0.13.0")
+bazel_dep(name = "rules_nixpkgs_java", version = "0.13.0")
 
 
 archive_override(
     module_name = "rules_nixpkgs_cc",
-    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.12.0/rules_nixpkgs-0.12.0.tar.gz"],
-    strip_prefix = "rules_nixpkgs-0.12.0/toolchains/cc",
-    integrity = "sha256-GtsE3AQWkV/vQndX9CcsT32s7+zu78UPaDrsf36beHo=",
+    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.13.0/rules_nixpkgs-0.13.0.tar.gz"],
+    strip_prefix = "rules_nixpkgs-0.13.0/toolchains/cc",
+    integrity = "sha256-MCcfe9OA5OIOTXEywySUbE/bwx6+C7tmOKD2GjfnQ5c=",
 )
 
 
 archive_override(
     module_name = "rules_nixpkgs_rust",
-    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.12.0/rules_nixpkgs-0.12.0.tar.gz"],
-    strip_prefix = "rules_nixpkgs-0.12.0/toolchains/rust",
-    integrity = "sha256-GtsE3AQWkV/vQndX9CcsT32s7+zu78UPaDrsf36beHo=",
+    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.13.0/rules_nixpkgs-0.13.0.tar.gz"],
+    strip_prefix = "rules_nixpkgs-0.13.0/toolchains/rust",
+    integrity = "sha256-MCcfe9OA5OIOTXEywySUbE/bwx6+C7tmOKD2GjfnQ5c=",
 )
 
 
 archive_override(
     module_name = "rules_nixpkgs_python",
-    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.12.0/rules_nixpkgs-0.12.0.tar.gz"],
-    strip_prefix = "rules_nixpkgs-0.12.0/toolchains/python",
-    integrity = "sha256-GtsE3AQWkV/vQndX9CcsT32s7+zu78UPaDrsf36beHo=",
+    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.13.0/rules_nixpkgs-0.13.0.tar.gz"],
+    strip_prefix = "rules_nixpkgs-0.13.0/toolchains/python",
+    integrity = "sha256-MCcfe9OA5OIOTXEywySUbE/bwx6+C7tmOKD2GjfnQ5c=",
 )
 
 
 archive_override(
     module_name = "rules_nixpkgs_posix",
-    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.12.0/rules_nixpkgs-0.12.0.tar.gz"],
-    strip_prefix = "rules_nixpkgs-0.12.0/toolchains/posix",
-    integrity = "sha256-GtsE3AQWkV/vQndX9CcsT32s7+zu78UPaDrsf36beHo=",
+    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.13.0/rules_nixpkgs-0.13.0.tar.gz"],
+    strip_prefix = "rules_nixpkgs-0.13.0/toolchains/posix",
+    integrity = "sha256-MCcfe9OA5OIOTXEywySUbE/bwx6+C7tmOKD2GjfnQ5c=",
 )
 
 
 archive_override(
     module_name = "rules_nixpkgs_nodejs",
-    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.12.0/rules_nixpkgs-0.12.0.tar.gz"],
-    strip_prefix = "rules_nixpkgs-0.12.0/toolchains/nodejs",
-    integrity = "sha256-GtsE3AQWkV/vQndX9CcsT32s7+zu78UPaDrsf36beHo=",
+    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.13.0/rules_nixpkgs-0.13.0.tar.gz"],
+    strip_prefix = "rules_nixpkgs-0.13.0/toolchains/nodejs",
+    integrity = "sha256-MCcfe9OA5OIOTXEywySUbE/bwx6+C7tmOKD2GjfnQ5c=",
 )
 
 
 archive_override(
     module_name = "rules_nixpkgs_java",
-    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.12.0/rules_nixpkgs-0.12.0.tar.gz"],
-    strip_prefix = "rules_nixpkgs-0.12.0/toolchains/java",
-    integrity = "sha256-GtsE3AQWkV/vQndX9CcsT32s7+zu78UPaDrsf36beHo=",
+    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.13.0/rules_nixpkgs-0.13.0.tar.gz"],
+    strip_prefix = "rules_nixpkgs-0.13.0/toolchains/java",
+    integrity = "sha256-MCcfe9OA5OIOTXEywySUbE/bwx6+C7tmOKD2GjfnQ5c=",
 )
 
 
@@ -77,7 +79,8 @@ local = use_extension(":extensions.bzl", "raylib")
 use_repo(local, "raylib_src", "bazel_local_nix", "nix_portable", "io_tweag_rules_nixpkgs")
 
 
-nix_repo = use_extension("@rules_nixpkgs_core//extensions:repository.bzl", "nix_repo")
+nix_repo = use_extension(
+    "@rules_nixpkgs_core//extensions:repository.bzl", "nix_repo")
 nix_repo.github(
     name = "nixpkgs",
     org = "NixOS",

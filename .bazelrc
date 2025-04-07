@@ -7,3 +7,4 @@ common --incompatible_enable_cc_toolchain_resolution
 
 # Temporarily, to include WORKSPACE.bzlmod in definitions.
 common --enable_workspace
+

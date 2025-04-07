@@ -23,11 +23,16 @@
             nix
             llvm_18
             xorg.libX11.dev
+            xorg.libX11
             xorg.libXft
             xorg.libXinerama
             libGL
             libGLU
             mesa
+            glfw
+            glew
+            pax-utils
+            zip
           ];
         };
       });

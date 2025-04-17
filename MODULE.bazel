@@ -1,5 +1,5 @@
 module(
-    name = "raylib",
+    name = "bazel_rules_raylib",
     version = "0.0.1",
 )
 

@@ -33,6 +33,7 @@
             glew
             pax-utils
             zip
+            glibc
           ];
         };
       });

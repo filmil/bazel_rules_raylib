@@ -19,21 +19,28 @@
       {
         devShells.default = with pkgs; (mkShell.override { stdenv = gcc14Stdenv; }) {
           name = "flake-example-shell";
-          packages = [ 
-            nix
-            llvm_18
-            xorg.libX11.dev
-            xorg.libX11
-            xorg.libXft
-            xorg.libXinerama
+          packages = [
+            expat
+            glew
+            glfw
+            glibc
             libGL
             libGLU
+            libdrm
+            llvm_18
             mesa
-            glfw
-            glew
+            nix
             pax-utils
+            waylandpp
+            xorg.libX11
+            xorg.libX11.dev
+            xorg.libXft
+            xorg.libXinerama
+            xorg.libxcb
+            xorg.libXau
+            xorg.libXdmcp
+            xorg.libpciaccess
             zip
-            glibc
           ];
         };
       });

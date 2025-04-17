@@ -269,3 +269,217 @@ cc_library(
 """,
 )
 
+nixpkgs_package(
+    name = "xcb",
+    attribute_path = "xorg.libxcb",
+    repository = "@nixpkgs",
+    build_file_content = """\
+load("@rules_cc//cc:defs.bzl", "cc_library")
+filegroup(
+    name = "libs",
+    srcs = glob(["lib/**/*.so*"]),
+)
+cc_library(
+    name = "lib_",
+    srcs = [":libs"],
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)
+""",
+)
+
+nixpkgs_package(
+    name = "drm",
+    attribute_path = "libdrm",
+    repository = "@nixpkgs",
+    build_file_content = """\
+load("@rules_cc//cc:defs.bzl", "cc_library")
+filegroup(
+    name = "libs",
+    srcs = glob(["lib/**/*.so*"]),
+)
+cc_library(
+    name = "lib_",
+    srcs = [":libs"],
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)
+""",
+)
+
+nixpkgs_package(
+    name = "wayland",
+    repository = "@nixpkgs",
+    build_file_content = """\
+load("@rules_cc//cc:defs.bzl", "cc_library")
+filegroup(
+    name = "libs",
+    srcs = glob(["lib/**/*.so*"]),
+)
+cc_library(
+    name = "lib_",
+    srcs = [":libs"],
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)
+""",
+)
+
+nixpkgs_package(
+    name = "libffi",
+    repository = "@nixpkgs",
+    build_file_content = """\
+load("@rules_cc//cc:defs.bzl", "cc_library")
+filegroup(
+    name = "libs",
+    srcs = glob(["lib/**/*.so*"]),
+)
+cc_library(
+    name = "lib_",
+    srcs = [":libs"],
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)
+""",
+)
+
+nixpkgs_package(
+    name = "libxau",
+    attribute_path = "xorg.libXau",
+    repository = "@nixpkgs",
+    build_file_content = """\
+load("@rules_cc//cc:defs.bzl", "cc_library")
+filegroup(
+    name = "libs",
+    srcs = glob(["lib/**/*.so*"]),
+)
+cc_library(
+    name = "lib_",
+    srcs = [":libs"],
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)
+""",
+)
+
+nixpkgs_package(
+    name = "expat",
+    repository = "@nixpkgs",
+    build_file_content = """\
+load("@rules_cc//cc:defs.bzl", "cc_library")
+filegroup(
+    name = "libs",
+    srcs = glob(["lib/**/*.so*"]),
+)
+cc_library(
+    name = "lib_",
+    srcs = [":libs"],
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)
+""",
+)
+
+nixpkgs_package(
+    name = "libxdmcp",
+    attribute_path = "xorg.libXdmcp",
+    repository = "@nixpkgs",
+    build_file_content = """\
+load("@rules_cc//cc:defs.bzl", "cc_library")
+filegroup(
+    name = "libs",
+    srcs = glob(["lib/**/*.so*"]),
+)
+cc_library(
+    name = "lib_",
+    srcs = [":libs"],
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)
+""",
+)
+
+nixpkgs_package(
+    name = "libbsd",
+    repository = "@nixpkgs",
+    build_file_content = """\
+load("@rules_cc//cc:defs.bzl", "cc_library")
+filegroup(
+    name = "libs",
+    srcs = glob(["lib/**/*.so*"]),
+)
+cc_library(
+    name = "lib_",
+    srcs = [":libs"],
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)
+""",
+)
+
+nixpkgs_package(
+    name = "libpciaccess",
+    attribute_path = "xorg.libpciaccess",
+    repository = "@nixpkgs",
+    build_file_content = """\
+load("@rules_cc//cc:defs.bzl", "cc_library")
+filegroup(
+    name = "libs",
+    srcs = glob(["lib/**/*.so*"]),
+)
+cc_library(
+    name = "lib_",
+    srcs = [":libs"],
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)
+""",
+)
+
+nixpkgs_package(
+    name = "libmd",
+    repository = "@nixpkgs",
+    build_file_content = """\
+load("@rules_cc//cc:defs.bzl", "cc_library")
+filegroup(
+    name = "libs",
+    srcs = glob(["lib/**/*.so*"]),
+)
+cc_library(
+    name = "lib_",
+    srcs = [":libs"],
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)
+""",
+)
+
+nixpkgs_package(
+    name = "libz",
+    repository = "@nixpkgs",
+    build_file_content = """\
+load("@rules_cc//cc:defs.bzl", "cc_library")
+filegroup(
+    name = "libs",
+    srcs = glob(["lib/**/*.so*"]),
+)
+cc_library(
+    name = "lib_",
+    srcs = [":libs"],
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)
+""",
+)
+

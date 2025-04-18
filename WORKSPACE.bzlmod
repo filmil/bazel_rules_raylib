@@ -157,7 +157,7 @@ nixpkgs_package(
 load("@rules_cc//cc:defs.bzl", "cc_library")
 filegroup(
     name = "libs",
-    srcs = glob(["lib/**/*.so.*"])
+    srcs = glob(["lib/*.so.*"])
 )
 cc_library(
     name = "lib_",
@@ -277,7 +277,11 @@ nixpkgs_package(
 load("@rules_cc//cc:defs.bzl", "cc_library")
 filegroup(
     name = "libs",
-    srcs = glob(["lib/**/*.so*"]),
+    srcs = glob([
+            "lib/*.so*",
+            "lib/libxcb*",
+        ],
+    ),
 )
 cc_library(
     name = "lib_",
@@ -297,7 +301,7 @@ nixpkgs_package(
 load("@rules_cc//cc:defs.bzl", "cc_library")
 filegroup(
     name = "libs",
-    srcs = glob(["lib/*.so*"]),
+    srcs = glob(["lib/*.so*", "lib/libdrm*"]),
 )
 cc_library(
     name = "lib_",

@@ -35,6 +35,7 @@
             xorg.libX11
             xorg.libX11.dev
             xorg.libXft
+            xorg.libXext
             xorg.libXinerama
             xorg.libxcb
             xorg.libXau

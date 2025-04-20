@@ -487,3 +487,41 @@ cc_library(
 """,
 )
 
+nixpkgs_package(
+    name = "glibc",
+    repository = "@nixpkgs",
+    build_file_content = """\
+load("@rules_cc//cc:defs.bzl", "cc_library")
+filegroup(
+    name = "libs",
+    srcs = glob(["lib/**/libpthread*.so*"], exclude = ["lib*_db*"]),
+)
+cc_library(
+    name = "lib_",
+    srcs = [":libs"],
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)
+""",
+)
+
+nixpkgs_package(
+    name = "xext",
+    attribute_path = "xorg.libXext",
+    repository = "@nixpkgs",
+    build_file_content = """\
+load("@rules_cc//cc:defs.bzl", "cc_library")
+filegroup(
+    name = "libs",
+    srcs = glob(["lib/**/*.so.*"])
+)
+cc_library(
+    name = "lib_",
+    srcs = [":libs"],
+    strip_include_prefix = "include",
+    visibility = ["//visibility:public"],
+)
+""",
+)
+

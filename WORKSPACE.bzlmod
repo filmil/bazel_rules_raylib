@@ -281,6 +281,9 @@ filegroup(
             "lib/*.so*",
             "lib/libxcb*",
         ],
+        exclude = [
+            "lib/*dbe*",
+        ],
     ),
 )
 cc_library(
@@ -301,7 +304,12 @@ nixpkgs_package(
 load("@rules_cc//cc:defs.bzl", "cc_library")
 filegroup(
     name = "libs",
-    srcs = glob(["lib/*.so*", "lib/libdrm*"]),
+    srcs = glob(["lib/*.so*"],
+    exclude = [
+        "lib/*etnaviv*",
+        "lib/*omap*",
+        "lib/*freedreno*",
+    ]),
 )
 cc_library(
     name = "lib_",

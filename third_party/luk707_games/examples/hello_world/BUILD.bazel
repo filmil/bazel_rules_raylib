@@ -1,0 +1,49 @@
+load(
+    "@io_tweag_clodl//clodl:clodl.bzl",
+    "binary_closure",
+)
+
+cc_binary(
+    name = "hello_world",
+    srcs = [
+        "main.cc"
+    ],
+    deps = [
+        "@raylib_src//:raylib",
+        "@x11//:lib_",
+        "@mesa//:lib_",
+        "@glu//:lib_",
+        "@glvnd//:lib_",
+        "@glfw//:lib_",
+        "@glew//:lib_",
+        "@xcb//:lib_",
+        "@drm//:lib_",
+        "@wayland//:lib_",
+        "@libffi//:lib_",
+        "@libxau//:lib_",
+        "@expat//:lib_",
+        "@libxdmcp//:lib_",
+        "@libbsd//:lib_",
+        "@libmd//:lib_",
+        "@libpciaccess//:lib_",
+        "@libz//:lib_",
+        "@glibc//:lib_",
+        "@xext//:lib_",
+    ]
+)
+
+genrule(
+    name = "ldd",
+    srcs = [
+        ":hello_world",
+    ],
+    outs = [
+        "ldd.txt",
+    ],
+    cmd = """ldd $< > $@""",
+)
+
+binary_closure(
+  name = "hello_world_bin",
+  src = ":hello_world",
+)

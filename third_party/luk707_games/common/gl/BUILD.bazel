@@ -8,7 +8,6 @@ cc_library(
     ],
     deps = [
         ":renderer",
-        "@glew//:lib_",
     ],
 )
 
@@ -26,7 +25,7 @@ cc_test(
     srcs = ["parse_shader_test.cc"],
     copts = ["-Iexternal/gtest/include"],
     deps = [
-        "@googletest",
+        "@gtest",
         ":parse_shader",
     ],
 )
@@ -38,11 +37,7 @@ cc_library(
         "renderer.hh",
     ],
     deps = [
-        "@glew//:lib_",
-        "@glu//:lib_",
-        "@glu.dev//:lib_",
-        "@mesa//:lib_",
-        "@glvnd//:lib_",
+        "@glew//:glew_static",
     ],
 )
 
@@ -73,7 +68,6 @@ cc_library(
     deps = [
         ":vertex_buffer",
         ":vertex_buffer_layout",
-        "@glew//:lib_",
     ],
 )
 
@@ -87,11 +81,6 @@ cc_library(
     ],
     deps = [
         ":renderer",
-        "@glew//:lib_",
-        "@glu//:lib_",
-        "@glu.dev//:lib_",
-        "@mesa//:lib_",
-        "@glvnd//:lib_",
     ],
 )
 

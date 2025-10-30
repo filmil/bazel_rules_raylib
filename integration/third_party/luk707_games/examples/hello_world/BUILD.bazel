@@ -1,0 +1,23 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+cc_binary(
+    name = "hello_world",
+    srcs = [
+        "main.cc"
+    ],
+    deps = [
+        "@raylib//:raylib",
+    ]
+)
+
+genrule(
+    name = "ldd",
+    srcs = [
+        ":hello_world",
+    ],
+    outs = [
+        "ldd.txt",
+    ],
+    cmd = """ldd $< > $@""",
+)
+

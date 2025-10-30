@@ -1,1 +1,5 @@
-
+alias(
+    name = "raylib",
+    actual = "@raylib_src//:raylib",
+    visibility = [ "//visibility:public", ],
+)

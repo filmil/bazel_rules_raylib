@@ -1,0 +1,22 @@
+cc_test(
+    name = "vector3_test",
+    srcs = ["vector3_test.cc"],
+    deps = [
+        ":vector3",
+        "@gtest",
+        "@gtest//:gtest_main",
+        "@raylib_src//:raylib",
+    ],
+)
+
+cc_library(
+    name = "vector3",
+    srcs = [
+        "vector3.cc",
+        "vector3.hh",
+    ],
+    deps = [
+        "@raylib_src//:raylib",
+    ],
+    linkstatic = True,
+)

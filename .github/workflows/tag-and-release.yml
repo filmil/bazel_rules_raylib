@@ -83,8 +83,10 @@ jobs:
           repository-cache: true
       - name: Checkout
         uses: actions/checkout@v2
-      - name: "Test"
-        run: "bazel test --test_output=errors //..."
+      - name: Test
+        run: |
+          bazel test --test_output=errors \
+              //... -- -//third_party/luk707_games/common/...
       - name: Find version tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.2

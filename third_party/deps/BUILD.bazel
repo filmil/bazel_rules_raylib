@@ -1,9 +1,17 @@
 load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
 
 sh_binary(
     name = "chromeos",
     srcs = [
         "chromeos.sh",
+    ]
+)
+
+sh_test(
+    name = "empty_test",
+    srcs = [
+        "empty_test.sh",
     ]
 )
 

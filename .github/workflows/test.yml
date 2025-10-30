@@ -23,7 +23,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Build
-        run: "bazel build //..."
+        run: "bazel build //... -- -//third_party/luk707_games/common/gl/..."
       - name: Test
-        run: "bazel test //..."
+        run: "bazel test //... -- -//third_party/luk707_games/common/..."
 

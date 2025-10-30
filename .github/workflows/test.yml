@@ -25,9 +25,9 @@ jobs:
       - name: Install prereqs
         run: "bazel run //third_party/deps:ubuntu"
       - name: Build
-        run: "bazel build //... -- -//third_party/luk707_games/common/gl/..."
+        run: bazel build //...
       - name: Test
-        run: "bazel test //... -- -//third_party/luk707_games/common/..."
+        run: bazel test //...
       - name: Integration
         run: "cd integration && bazel build //third_party/luk707_games/examples/..."
 

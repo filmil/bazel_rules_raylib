@@ -6,23 +6,23 @@ int main(int argc, char* argv[])
     int screenHeight = 450;
 
     InitWindow(screenWidth, screenHeight, "Wireframe cube");
-    
+
     Camera3D camera = { 0 };
     camera.position = Vector3{ 10.0f, 10.0f, 10.0f };
     camera.target = Vector3{ 0.0f, 0.0f, 0.0f };
     camera.up = Vector3{ 0.0f, 1.0f, 0.0f };
     camera.fovy = 45.0f;
-    camera.type = CAMERA_PERSPECTIVE;
+    //camera.type = CAMERA_PERSPECTIVE;
 
     Vector3 cubePosition = { 0.0f, 0.0f, 0.0f };
 
-    SetCameraMode(camera, CAMERA_FREE);
+    //SetCameraMode(camera, CAMERA_FREE);
 
     SetTargetFPS(60);
 
     while (!WindowShouldClose())
     {
-        UpdateCamera(&camera);
+        UpdateCamera(&camera, CAMERA_FREE);
 
         if (IsKeyDown('Z')) camera.target = Vector3{ 0.0f, 0.0f, 0.0f };
 

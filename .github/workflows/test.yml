@@ -22,6 +22,8 @@ jobs:
           repository-cache: true
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Install prereqs
+        run: "bazel run //third_party/deps:ubuntu"
       - name: Build
         run: "bazel build //... -- -//third_party/luk707_games/common/gl/..."
       - name: Test

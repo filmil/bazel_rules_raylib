@@ -8,6 +8,12 @@ sh_binary(
     ]
 )
 
+sh_binary(
+    name = "ubuntu",
+    srcs = [
+        "ubuntu.sh",
+    ]
+)
 sh_test(
     name = "empty_test",
     srcs = [

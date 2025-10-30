@@ -83,6 +83,8 @@ jobs:
           repository-cache: true
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Install prereqs
+        run: "bazel run //third_party/deps:ubuntu"
       - name: Test
         run: |
           bazel test --test_output=errors \

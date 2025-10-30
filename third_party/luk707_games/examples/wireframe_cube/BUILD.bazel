@@ -5,7 +5,5 @@ cc_binary(
     ],
     deps = [
         "@raylib_src//:raylib",
-        "@x11//:lib_",
     ],
-    #linkopts = ["/subsystem:windows", "/ENTRY:mainCRTStartup"],
 )

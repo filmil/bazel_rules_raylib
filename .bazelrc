@@ -2,7 +2,7 @@
 try-import %workspace%/user.bazelrc
 
 # Add project-wide settings below.
-common --host_platform=@rules_nixpkgs_core//platforms:host
+#common --host_platform=@rules_nixpkgs_core//platforms:host
 common --incompatible_enable_cc_toolchain_resolution
 
 # Temporarily, to include WORKSPACE.bzlmod in definitions.

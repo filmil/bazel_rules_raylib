@@ -28,4 +28,6 @@ jobs:
         run: "bazel build //... -- -//third_party/luk707_games/common/gl/..."
       - name: Test
         run: "bazel test //... -- -//third_party/luk707_games/common/..."
+      - name: Integration
+        run: "cd integration && bazel build //third_party/luk707_games/examples/..."
 

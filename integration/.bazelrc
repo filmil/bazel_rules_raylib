@@ -1,0 +1,6 @@
+# Add your local user settings to file `user.bazelrc`
+try-import %workspace%/user.bazelrc
+
+# Add project-wide settings below.
+common --incompatible_enable_cc_toolchain_resolution
+

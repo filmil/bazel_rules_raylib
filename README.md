@@ -8,3 +8,35 @@
 raylib rules for bazel
 
 not hermetic.
+
+## Prerequisites
+
+### Ubuntu
+
+```shell
+bazel run //third_party/deps:ubuntu
+```
+
+### ChromeOS
+
+```shell
+bazel run //third_party/deps:chromeos
+```
+
+## Build
+
+```shell
+bazel build //...
+```
+
+## Test
+
+```shell
+bazel test //...
+```
+
+## Integration
+
+```
+cd integration && bazel build //third_party/luk707_games/examples/...
+```

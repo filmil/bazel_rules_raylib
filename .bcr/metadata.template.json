@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/filmil/rules_raylib",
+  "homepage": "https://github.com/filmil/bazel_rules_raylib",
   "maintainers": [
     {
       "name": "Filip Filmar",
@@ -9,7 +9,7 @@
     }
   ],
   "repository": [
-    "github:filmil/rules_raylib"
+    "github:filmil/bazel_rules_raylib"
   ],
   "versions": [
   ],

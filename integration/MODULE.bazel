@@ -10,19 +10,15 @@ bazel_dep(name = "glm", version = "1.0.0.bcr.1")
 bazel_dep(name = "bazel_skylib", version = "1.7.1")
 bazel_dep(name = "rules_cc", version = "0.1.1")
 bazel_dep(name = "rules_shell", version = "0.6.1")
-bazel_dep(name = "rules_foreign_cc", version = "0.14.0")
 bazel_dep(name = "platforms", version = "0.0.11")
-
-
 bazel_dep(name = "bazel_rules_raylib", version = "0.0.0", repo_name = "raylib")
 local_path_override(
     module_name = "bazel_rules_raylib",
     path = "../",
 )
+
 local = use_extension("@raylib//:extensions.bzl", "raylib")
 use_repo(local, "raylib_src")
-
-
 
 bazel_dep(name = "hermetic_cc_toolchain", version = "3.1.0")
 

@@ -11,9 +11,9 @@ bazel_dep(name = "bazel_skylib", version = "1.7.1")
 bazel_dep(name = "rules_cc", version = "0.1.1")
 bazel_dep(name = "rules_shell", version = "0.6.1")
 bazel_dep(name = "platforms", version = "0.0.11")
-bazel_dep(name = "bazel_rules_raylib", version = "0.0.0", repo_name = "raylib")
+bazel_dep(name = "rules_raylib", version = "0.0.0", repo_name = "raylib")
 local_path_override(
-    module_name = "bazel_rules_raylib",
+    module_name = "rules_raylib",
     path = "../",
 )
 

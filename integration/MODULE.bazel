@@ -1,16 +1,20 @@
+# A consumer of rules_raylib, the way a registry user is one: it names the
+# module, calls its extension, and registers a C++ toolchain of its own, since
+# rules_raylib registers none for consumers. The Bazel Central Registry's
+# presubmit runs this module (.bcr/presubmit.yml).
 module(
     name = "integration",
     version = "0.0.0",
 )
 
-bazel_dep(name = "googletest", version = "1.16.0", repo_name = "gtest")
-bazel_dep(name = "glfw", version = "3.3.9")
-bazel_dep(name = "glew", version = "2.2.0")
-bazel_dep(name = "glm", version = "1.0.0.bcr.1")
-bazel_dep(name = "bazel_skylib", version = "1.7.1")
-bazel_dep(name = "rules_cc", version = "0.1.1")
-bazel_dep(name = "rules_shell", version = "0.6.1")
-bazel_dep(name = "platforms", version = "0.0.11")
+bazel_dep(name = "googletest", version = "1.17.0.bcr.2", repo_name = "gtest")
+bazel_dep(name = "glfw", version = "3.4.0.bcr.3")
+bazel_dep(name = "glew", version = "2.3.1")
+bazel_dep(name = "glm", version = "1.0.3")
+bazel_dep(name = "bazel_skylib", version = "1.9.0")
+bazel_dep(name = "rules_cc", version = "0.2.20")
+bazel_dep(name = "rules_shell", version = "0.8.0")
+bazel_dep(name = "platforms", version = "1.1.0")
 bazel_dep(name = "rules_raylib", version = "0.0.0", repo_name = "raylib")
 local_path_override(
     module_name = "rules_raylib",
@@ -20,7 +24,7 @@ local_path_override(
 local = use_extension("@raylib//:extensions.bzl", "raylib")
 use_repo(local, "raylib_src")
 
-bazel_dep(name = "hermetic_cc_toolchain", version = "3.1.0")
+bazel_dep(name = "hermetic_cc_toolchain", version = "4.1.0")
 
 toolchains = use_extension("@hermetic_cc_toolchain//toolchain:ext.bzl", "toolchains")
 use_repo(toolchains, "zig_sdk")

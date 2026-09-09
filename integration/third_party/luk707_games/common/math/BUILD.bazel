@@ -1,6 +1,11 @@
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test")
+
 cc_test(
     name = "vector3_test",
     srcs = ["vector3_test.cc"],
+    # Static: the hermetic toolchain's binaries do not find a shared gtest
+    # next to them at run time.
+    linkstatic = True,
     deps = [
         ":vector3",
         "@gtest",

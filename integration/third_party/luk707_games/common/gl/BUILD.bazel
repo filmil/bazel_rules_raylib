@@ -1,3 +1,5 @@
+load("@rules_cc//cc:defs.bzl", "cc_library", "cc_test")
+
 package(default_visibility = ["//visibility:public"])
 
 cc_library(
@@ -23,10 +25,13 @@ cc_library(
 cc_test(
     name = "parse_shader_test",
     srcs = ["parse_shader_test.cc"],
-    copts = ["-Iexternal/gtest/include"],
+    # Static: the hermetic toolchain's binaries do not find a shared gtest
+    # next to them at run time.
+    linkstatic = True,
     deps = [
-        "@gtest",
         ":parse_shader",
+        "@gtest",
+        "@gtest//:gtest_main",
     ],
 )
 
@@ -37,7 +42,7 @@ cc_library(
         "renderer.hh",
     ],
     deps = [
-        "@glew//:glew_static",
+        "@glew//:glew",
     ],
 )
 

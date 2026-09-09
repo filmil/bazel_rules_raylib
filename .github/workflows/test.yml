@@ -14,20 +14,32 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup bazel
-        uses: bazel-contrib/setup-bazel@0.15.0
+      - name: Checkout
+        uses: actions/checkout@v7
+      # Checkout first: the bazelisk cache is keyed on .bazelversion.
+      - name: Setup Bazel
+        uses: bazel-contrib/setup-bazel@0.19.0
         with:
           bazelisk-cache: true
           disk-cache: ${{ github.workflow }}
           repository-cache: true
-      - name: Checkout
-        uses: actions/checkout@v3
+      # The X11 and OpenGL development packages a raylib program links
+      # against. The module is not hermetic (see README.md).
       - name: Install prereqs
         run: "bazel run //third_party/deps:ubuntu"
       - name: Build
         run: bazel build //...
       - name: Test
         run: bazel test //...
+      # What a consumer of the module gets, and what the Bazel Central
+      # Registry's presubmit runs: integration/ depends on rules_raylib the
+      # way a registry user would, and registers its own C++ toolchain.
       - name: Integration
         run: "cd integration && bazel build //third_party/luk707_games/examples/..."
-
+      # The tests the Bazel Central Registry's presubmit runs
+      # (.bcr/presubmit.yml), so they fail here first.
+      - name: Integration tests
+        run: |
+          cd integration && bazel test --test_output=errors \
+            //third_party/luk707_games/common/math:vector3_test \
+            //third_party/luk707_games/common/gl:parse_shader_test
